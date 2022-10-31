@@ -25,26 +25,21 @@ public class UserResource {
         return userService.getAllUser();
     }
 
+    @GetMapping("/find")
+    public List<User> getUserByID(@RequestParam(name = "id")String id){
+        return userService.getUserById(id);
+    }
+
     //PUT methods
     @PutMapping
     public User updateUser( @RequestBody User user){
         return userService.updateUser(user);
     }
 
-    /*
-
-    @GetMapping("/user/{id}")
-    public User getUserById(@PathVariable("id") int id){
-        return userService.getUserById(id);
-    }
-
-
-
     //DELETE methods
-    @DeleteMapping("/user")
-    public User deleteUser (@RequestParam(name = "id")int id){
-        return userService.deleteUser(id);
+    @DeleteMapping
+    public void deleteUser (@RequestParam(name = "id")String id){
+         userService.deleteUser(id);
     }
 
-     */
 }

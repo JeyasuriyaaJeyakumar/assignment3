@@ -23,6 +23,15 @@ public class AlbumService {
     public Album updateAlbum(Album album) {
         return albumRepository.save(album);
     }
+
+
+    public void deleteAlbum(String id) {
+          albumRepository.deleteById(id);
+    }
+
+    public List<Album> getAlbumById(String id) {
+        return albumRepository.findAllById(id);
+    }
     /*
 
     public Album getAlbumById(int id) {
@@ -31,9 +40,6 @@ public class AlbumService {
 
 
 
-    public Album deleteAlbum(int id) {
-        return albumRepository.deleteAlbum(id);
-    }
 
      */
 }

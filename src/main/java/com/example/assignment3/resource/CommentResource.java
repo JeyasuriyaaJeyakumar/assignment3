@@ -25,10 +25,20 @@ public class CommentResource {
         return commentService.getAllComment();
     }
 
+    @GetMapping("/find")
+    public List<Comment> getCommentById(@RequestParam(name = "id")String id){
+        return commentService.getCommentById(id);
+    }
+
     //PUT methods
     @PutMapping
     public Comment updateComment( @RequestBody Comment comment){
         return commentService.updateComment(comment);
+    }
+    //DELETE methods
+    @DeleteMapping
+    public void deleteComment(@RequestParam(name = "id")String id){
+          commentService.deleteComment(id);
     }
     /*
 
@@ -39,11 +49,7 @@ public class CommentResource {
 
 
 
-    //DELETE methods
-    @DeleteMapping("/comment")
-    public Comment deleteComment(@RequestParam(name = "id")int id){
-        return commentService.deleteComment(id);
-    }
+
 
      */
 }

@@ -24,26 +24,20 @@ public class PhotoResource {
         return photoService.getAllPhoto();
     }
 
+    @GetMapping("/find")
+    public List<Photo> getPhotoById(@RequestParam(name = "id")String id){
+        return photoService.getPhotoById(id);
+    }
+
     //PUT methods
     @PutMapping
     public Photo updatePhoto(@RequestBody Photo photo){
         return photoService.updatePhoto(photo);
     }
-    /*
-
-    @GetMapping("/photo/{id}")
-    public Photo getPhotoById(@PathVariable("id") int id){
-        return photoService.getPhotoById(id);
-    }
-
-
-
-
     //DELETE methods
-    @DeleteMapping("/photo")
-    public Photo deletePhoto(@RequestParam(name = "id")int id){
-        return photoService.deletePhoto(id);
+    @DeleteMapping
+    public void deletePhoto(@RequestParam(name = "id")String id){
+          photoService.deletePhoto(id);
     }
 
-     */
 }

@@ -24,6 +24,15 @@ public class CommentService {
     public Comment updateComment(Comment comment) {
         return commentRepository.save(comment);
     }
+
+    public void deleteComment(String id) {
+          commentRepository.deleteById(id);
+    }
+
+    public List<Comment> getCommentById(String id) {
+        return commentRepository.findAllById(id);
+    }
+
     /*
 
 
@@ -32,9 +41,6 @@ public class CommentService {
     }
 
 
-    public Comment deleteComment(int id) {
-        return commentRepository.deleteComment(id);
-    }
 
      */
 }

@@ -23,18 +23,14 @@ public class PhotoService {
     public Photo updatePhoto(Photo photo) {
         return photoRepository.save(photo);
     }
-    /*
 
 
-    public Photo getPhotoById(int id) {
-        return photoRepository.getPhotoByID(id);
+    public void deletePhoto(String id) {
+          photoRepository.deleteById(id);
     }
 
-
-
-    public Photo deletePhoto(int id) {
-        return photoRepository.deletePhoto(id);
+    public List<Photo> getPhotoById(String id) {
+        return photoRepository.findAllById(id);
     }
 
-     */
 }
