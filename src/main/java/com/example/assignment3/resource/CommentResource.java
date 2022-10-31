@@ -8,36 +8,42 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/comments")
 
 public class CommentResource {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/comment")
+    //POST  methods
+    @PostMapping
+    public Comment saveComment(@RequestBody Comment comment){
+        return commentService.saveComment(comment);
+    }
+
+    @GetMapping
     public List<Comment> getAllComment(){
         return commentService.getAllComment();
     }
+
+    //PUT methods
+    @PutMapping
+    public Comment updateComment( @RequestBody Comment comment){
+        return commentService.updateComment(comment);
+    }
+    /*
 
     @GetMapping("/comment/{id}")
     public Comment getCommentById(@PathVariable("id") int id){
         return commentService.getCommentById(id);
     }
-    //POST  methods
-    @PostMapping("/comment")
-    public Comment saveComment(@RequestBody Comment comment){
-        return commentService.saveComment(comment);
-    }
 
-    //PUT methods
-    @PutMapping("/comment/{id}")
-    public Comment updateComment(@PathVariable("id") int id, @RequestBody Comment comment){
-        return commentService.updateComment(id, comment);
-    }
+
 
     //DELETE methods
     @DeleteMapping("/comment")
     public Comment deleteComment(@RequestParam(name = "id")int id){
         return commentService.deleteComment(id);
     }
+
+     */
 }

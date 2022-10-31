@@ -9,35 +9,41 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/photos")
 public class PhotoResource {
     @Autowired
     private PhotoService photoService;
 
-    @GetMapping("/photo")
+    //POST  methods
+    @PostMapping
+    public Photo savePhoto(@RequestBody Photo photo){
+        return photoService.savePhoto(photo);
+    }
+    @GetMapping
     public List<Photo> getAllPhoto(){
         return photoService.getAllPhoto();
     }
+
+    //PUT methods
+    @PutMapping
+    public Photo updatePhoto(@RequestBody Photo photo){
+        return photoService.updatePhoto(photo);
+    }
+    /*
 
     @GetMapping("/photo/{id}")
     public Photo getPhotoById(@PathVariable("id") int id){
         return photoService.getPhotoById(id);
     }
-    //POST  methods
-    @PostMapping("/photo")
-    public Photo savePhoto(@RequestBody Photo photo){
-        return photoService.savePhoto(photo);
-    }
 
-    //PUT methods
-    @PutMapping("/photo/{id}")
-    public Photo updatePhoto(@PathVariable("id") int id, @RequestBody Photo photo){
-        return photoService.updatePhoto(id, photo);
-    }
+
+
 
     //DELETE methods
     @DeleteMapping("/photo")
     public Photo deletePhoto(@RequestParam(name = "id")int id){
         return photoService.deletePhoto(id);
     }
+
+     */
 }

@@ -1,26 +1,29 @@
 package com.example.assignment3.model;
 
+
+import org.springframework.data.annotation.Id;
+
 public class Comment {
 
-    private int id;
+    @Id
+    private String id;
     private int photoId;
     private String message;
     private String createdBy;
     private String dateCreated;
 
-    public Comment(int id, int photoId, String message, String createdBy, String dateCreated) {
-        this.id = id;
+    public Comment(int photoId, String message, String createdBy, String dateCreated) {
         this.photoId = photoId;
         this.message = message;
         this.createdBy = createdBy;
         this.dateCreated = dateCreated;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

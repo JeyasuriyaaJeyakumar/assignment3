@@ -1,26 +1,27 @@
 package com.example.assignment3.model;
+import org.springframework.data.annotation.Id;
 
 public class Album {
 
-    private int id;
+    @Id
+    private String id;
     private String name;
     private String coverPhotoUrl;
     private String createdBy;
     private String dateCreated;
 
-    public Album(int id, String name, String coverPhotoUrl, String createdBy, String dateCreated) {
-        this.id = id;
+    public Album(String name, String coverPhotoUrl, String createdBy, String dateCreated) {
         this.name = name;
         this.coverPhotoUrl = coverPhotoUrl;
         this.createdBy = createdBy;
         this.dateCreated = dateCreated;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

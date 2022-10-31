@@ -13,23 +13,27 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    public List<User> getAllUser() {
-        return userRepository.getAllUser();
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
+    public List<User> getAllUser() {
+        return userRepository.findAll();
+    }
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+/*
     public User getUserById(int id) {
         return userRepository.getUserById(id);
     }
 
-    public User saveUser(User user) {
-        return userRepository.saveUser(user);
-    }
 
 
-    public User updateUser(int id, User user) {
-        return userRepository.updateUser(id, user);
-    }
+
 
     public User deleteUser(int id) {
         return userRepository.deleteUser(id);
     }
+
+ */
 }

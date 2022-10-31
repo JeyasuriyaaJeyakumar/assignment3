@@ -13,23 +13,28 @@ public class CommentService {
 
     @Autowired
     private CommentRepository commentRepository;
-    public List<Comment> getAllComment() {
-        return commentRepository.getAllComment();
+
+    public Comment saveComment(Comment comment) {
+        return commentRepository.save(comment);
     }
+    public List<Comment> getAllComment() {
+        return commentRepository.findAll();
+    }
+
+    public Comment updateComment(Comment comment) {
+        return commentRepository.save(comment);
+    }
+    /*
+
 
     public Comment getCommentById(int id) {
         return commentRepository.getCommentById(id);
     }
 
-    public Comment saveComment(Comment comment) {
-        return commentRepository.saveComment(comment);
-    }
-
-    public Comment updateComment(int id, Comment comment) {
-        return commentRepository.updateComment(id, comment);
-    }
 
     public Comment deleteComment(int id) {
         return commentRepository.deleteComment(id);
     }
+
+     */
 }
